@@ -1,0 +1,7 @@
+logging:
+  level:
+    com:      
+      learning:
+        springboot: INFO
+    org:
+      springframework: ERROR
