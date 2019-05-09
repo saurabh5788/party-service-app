@@ -8,5 +8,4 @@ public class PartyServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PartyServiceApplication.class, args);
 	}
-
 }
