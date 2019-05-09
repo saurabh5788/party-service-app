@@ -12,10 +12,10 @@ cache:
   
 deploy:
    provider: cloudfoundry
-   username: saurabh.singh5788@gmail.com
-   password: Pivotal@5788
-   api: https://api.run.pivotal.io
-   organization: Spring-Boot-Learning
-   space: Party
-   #manifest: manifest-staging.yml       # (optional)  Defaults to manifest.yml.
-   #app_name: Party Service Application  # (optional)  Will be taken from manifest.yml.
+   #username: saurabh.singh5788@gmail.com   # Provided as Environment Variable
+   #password: XXXXXXXXXXXX                  # Provided as Environment Variable
+   #api: https://api.run.pivotal.io         # Provided as Environment Variable
+   #organization: Spring-Boot-Learning      # Provided as Environment Variable
+   #space: Party                            # Provided as Environment Variable
+   #manifest: manifest-staging.yml          # (optional)  Defaults to manifest.yml.
+   #app_name: Party Service Application     # (optional)  Will be taken from manifest.yml.
