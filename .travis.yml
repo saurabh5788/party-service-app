@@ -15,7 +15,7 @@ deploy:
    username: saurabh.singh5788@gmail.com
    password: Pivotal@5788
    api: https://api.run.pivotal.io
-   organization: myawesomeorganization
+   organization: Spring-Boot-Learning
    space: Party
    #manifest: manifest-staging.yml       # (optional)  Defaults to manifest.yml.
    app_name: Party Service Application
