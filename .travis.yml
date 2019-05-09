@@ -1,5 +1,21 @@
 language: java
 jdk: oraclejdk8
 
+#The chmod command is used to change the access mode of a file.
 before_install:
   - chmod +x mvnw
+  
+#In order to speed up future builds, it’s a good idea to keep the Maven local repository between different runs, as it would be the case on Jenkins or a local machine. The following configuration achieves just that:
+cache:
+  directories:
+  - $HOME/.m2
+  
+deploy:
+   provider: cloudfoundry
+   username: saurabh.singh5788@gmail.com
+   password: Pivotal@5788
+   api: https://api.run.pivotal.io
+   organization: myawesomeorganization
+   space: Party
+   #manifest: manifest-staging.yml       # (optional)  Defaults to manifest.yml.
+   app_name: Party Service Application
