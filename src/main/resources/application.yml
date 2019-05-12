@@ -4,18 +4,13 @@ logging.level:
   org.springframework: ERROR
   org.springframework.boot.context.embedded: INFO
   com.learning.springboot: INFO
-#Setting Default Profile
-#spring.profiles.active: local 
+#Setting Profile
+spring.profiles.active: unit-test 
 ---
 #Local Profile
-server.port: 8080
-management:
-  #port: 8080
-  security:
-    enabled: false  
 spring:
   profiles: local
-  application.name: party-service-app-local
+  application.name: party-service-app
   jpa:
     generate-ddl: true
     show-sql: true    
@@ -25,21 +20,46 @@ spring:
         #ddl-auto: create
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost/party-service-app-db?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://localhost/party-service-app-db
     username: root
     password:
     platform: mysql 
----
-#CF Profile
-# Enabling Random Vacant Port assignment
-server.port: ${PORT:0}
+server.port: 8080
 management:
   #port: 8080
   security:
-    enabled: false  
+    enabled: false      
+---
+#Unit Test Profile
+spring:
+  profiles: unit-test
+  application:
+    name: party-service-dev
+  # To See H2 Console in Browser:
+  # http://localhost:<<Port>>/h2-console
+  # Enabling H2 Console
+  h2:
+    console:
+      enabled: true
+  jpa:
+    generate-ddl: true
+    show-sql: true    
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        ddl-auto: create
+  datasource:
+    url: jdbc:h2:mem:party-service-app-db  
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+    platform: h2
+server.port: 8080
+---
+#CF Profile
 spring:
   profiles: cf
-  application.name: party-service-app-cf
+  application.name: party-service-app
   jpa:
     generate-ddl: false
     show-sql: true    
@@ -53,3 +73,9 @@ spring:
     username: root
     password:
     platform: mysql
+#Enabling Random Vacant Port assignment
+server.port: ${PORT:0}
+management:
+  #port: 8080
+  security:
+    enabled: false  
