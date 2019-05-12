@@ -49,7 +49,7 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
         ddl-auto: create
   datasource:
-    url: jdbc:h2:mem:party-service-app-db  
+    url: jdbc:h2:mem:party-service-app-db;DB_CLOSE_ON_EXIT=FALSE  
     driverClassName: org.h2.Driver
     username: sa
     password:
