@@ -9,8 +9,6 @@ logging.level:
 ---
 #Local Profile
 server.port: 8080
-# Enabling Random Vacant Port assignment
-# server.port: ${PORT:0}
 management:
   #port: 8080
   security:
@@ -27,7 +25,7 @@ spring:
         #ddl-auto: create
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost/party-service-app-db
+    url: jdbc:mysql://localhost/party-service-app-db?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
     username: root
     password:
     platform: mysql 
