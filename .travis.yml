@@ -24,3 +24,8 @@ deploy:
    #space: Party
    #manifest: manifest-staging.yml       # (optional)  Defaults to manifest.yml.
    #app_name: Party Service Application  # (optional)  Will be taken from manifest.yml.
+   
+# safelist
+branches.only:
+  - master
+  - mysql-db-support

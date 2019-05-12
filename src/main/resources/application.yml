@@ -5,7 +5,7 @@ logging.level:
   org.springframework.boot.context.embedded: INFO
   com.learning.springboot: INFO
 #Setting Default Profile
-spring.profiles.active: local  
+spring.profiles.active: local 
 ---
 #Local Profile
 server.port: 8080
@@ -17,7 +17,31 @@ management:
     enabled: false  
 spring:
   profiles: local
-  application.name: party-service-app-dev
+  application.name: party-service-app-local
+  jpa:
+    generate-ddl: true
+    show-sql: true    
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        #ddl-auto: create
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/party-service-app-db
+    username: root
+    password:
+    platform: mysql 
+---
+#CF Profile
+# Enabling Random Vacant Port assignment
+server.port: ${PORT:0}
+management:
+  #port: 8080
+  security:
+    enabled: false  
+spring:
+  profiles: cf
+  application.name: party-service-app-cf
   jpa:
     generate-ddl: false
     show-sql: true    
