@@ -26,6 +26,7 @@ deploy:
    #app_name: Party Service Application  # (optional)  Will be taken from manifest.yml.
    
 # safelist
-branches.only:
+branches:
+  only:
   - master
   - mysql-db-support
