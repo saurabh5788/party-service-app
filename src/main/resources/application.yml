@@ -67,6 +67,12 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         #ddl-auto: create
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: ${vcap.services.cleardb.credentials.jdbcUrl}
+    username: ${vcap.services.cleardb.credentials.username}
+    password: ${vcap.services.cleardb.credentials.password}
+    platform: mysql 
 #Enabling Random Vacant Port assignment
 server.port: ${PORT:0}
 management:

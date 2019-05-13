@@ -14,3 +14,7 @@ applications:
     JBP_CONFIG_OPEN_JDK_JRE: '{jre: { version: 1.8.0_+ }}'
     SPRING_PROFILES_ACTIVE: pcf
     JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+  services:
+   - party-service-app-mysql-db
+   - party-service-app-logs
+  
