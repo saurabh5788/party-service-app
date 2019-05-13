@@ -14,26 +14,55 @@ import org.springframework.context.annotation.Scope;
 import com.learning.springboot.partyserviceapp.entity.PartyEntity;
 
 @SpringBootApplication
-public class PartyServiceApplication implements ApplicationRunner, CommandLineRunner{
+public class PartyServiceApplication implements ApplicationRunner,
+		CommandLineRunner {
 	@Value("${spring.application.name}")
 	private String applicationName;
 	@Value("${server.port:NO PORT}")
 	private String applicationPort;
+	@Value("${spring.profiles.active:NO ACTIVE PROFILE}")
+	private String activeProfile;
+	
+	@Value("${spring.datasource.url:NO DS URL}")
+	private String dataSourceURL;
+	@Value("${spring.datasource.username:NO DS USERNAME}")
+	private String dataSourceUserName;
+	@Value("${vcap.services.cleardb.name:NO VCAP DB NAME}")
+	private String dataSourceDBName;
+	@Value("${spring.datasource.password:NO PASSWORD}")
+	private String dataSourcePassword;
+	
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(PartyServiceApplication.class);
+
 	public static void main(String[] args) {
 		SpringApplication.run(PartyServiceApplication.class, args);
 	}
+
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception {
-		LOGGER.info("ApplicationRunner - {}:{}", applicationName,applicationPort);
+		LOGGER.info("ApplicationRunner - {}:{}", applicationName,
+				applicationPort);
 	}
 
 	@Override
 	public void run(String... arg0) throws Exception {
-		LOGGER.info("CommandLineRunner - {}:{}", applicationName,applicationPort);
+		LOGGER.info("CommandLineRunner - {}:{}", applicationName,
+				applicationPort);
+		LOGGER.info("Application Name : {}", applicationName);
+		LOGGER.info("Application Port : {}", applicationPort);
+		LOGGER.info("Active Profile : {}", activeProfile);
+		LOGGER.info("Data Source URL : {}", dataSourceURL);
+		LOGGER.info("Data Source DB Name : {}", dataSourceDBName);
+		LOGGER.info("Data Source UserName : {}", dataSourceUserName);
+		LOGGER.info("Data Source Password : {}", dataSourcePassword);
+		
+		int argIndex = 0;
+		for (String arg : arg0) {
+			LOGGER.info("Argument {} : {}", ++argIndex, arg);
+		}
 	}
-	
+
 	@Bean(name = "blankParty")
 	public PartyEntity getBlankPartyEntity() {
 		return new PartyEntity();

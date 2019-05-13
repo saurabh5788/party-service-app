@@ -56,9 +56,9 @@ spring:
     platform: h2
 server.port: 8080
 ---
-#CF Profile
+#PCF Profile
 spring:
-  profiles: cf
+  profiles: pcf
   application.name: party-service-app
   jpa:
     generate-ddl: false
@@ -67,12 +67,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         #ddl-auto: create
-  datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost/party-service-app-db?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
-    username: root
-    password:
-    platform: mysql
 #Enabling Random Vacant Port assignment
 server.port: ${PORT:0}
 management:
