@@ -30,7 +30,7 @@ public class PartyServiceApplication implements ApplicationRunner,
 	private String dataSourceURL;
 	@Value("${spring.datasource.username:NO DS USERNAME}")
 	private String dataSourceUserName;
-	@Value("${vcap.services.party-service-app-mysql-db.name:NO VCAP DB NAME}")
+	@Value("${vcap.services.party-service-app-db.name:NO VCAP DB NAME}")
 	private String dataSourceDBName;
 	@Value("${spring.datasource.password:NO PASSWORD}")
 	private String dataSourcePassword;
