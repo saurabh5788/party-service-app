@@ -61,7 +61,7 @@ spring:
   profiles: pcf
   application.name: party-service-app
   jpa:
-    generate-ddl: false
+    generate-ddl: true
     show-sql: true    
     properties:
       hibernate:
