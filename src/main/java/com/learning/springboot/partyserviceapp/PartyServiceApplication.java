@@ -17,6 +17,8 @@ import com.learning.springboot.partyserviceapp.entity.PartyEntity;
 @SpringBootApplication
 public class PartyServiceApplication implements ApplicationRunner,
 		CommandLineRunner {
+	@Value("${vcap.services: NO VCAP}")
+	private Object vcapServices;
 	@Value("${spring.application.name}")
 	private String applicationName;
 	@Value("${server.port:NO PORT}")
@@ -55,6 +57,7 @@ public class PartyServiceApplication implements ApplicationRunner,
 	public void run(String... arg0) throws Exception {
 		LOGGER.info("CommandLineRunner - {}:{}", applicationName,
 				applicationPort);
+		LOGGER.info("VCAP Services : {}", vcapServices);
 		LOGGER.info("Application Name : {}", applicationName);
 		LOGGER.info("Application Port : {}", applicationPort);
 		LOGGER.info("Active Profile : {}", activeProfile);
