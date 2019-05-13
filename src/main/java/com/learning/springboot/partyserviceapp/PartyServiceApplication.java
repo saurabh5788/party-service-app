@@ -43,6 +43,7 @@ public class PartyServiceApplication implements ApplicationRunner,
 	public void run(ApplicationArguments arg0) throws Exception {
 		LOGGER.info("ApplicationRunner - {}:{}", applicationName,
 				applicationPort);
+		LOGGER.info("ApplicationArguments : {}", arg0);
 	}
 
 	@Override
