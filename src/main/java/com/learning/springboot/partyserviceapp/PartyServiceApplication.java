@@ -44,8 +44,7 @@ public class PartyServiceApplication implements ApplicationRunner,
 
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception {
-		LOGGER.info("ApplicationRunner - {}:{}", applicationName,
-				applicationPort);
+		LOGGER.info("===============ApplicationRunner================");
 		Set<String> optionNameSet = arg0.getOptionNames();
 		int optionNameIndex = 0;
 		for(String optionName : optionNameSet){
@@ -55,8 +54,7 @@ public class PartyServiceApplication implements ApplicationRunner,
 
 	@Override
 	public void run(String... arg0) throws Exception {
-		LOGGER.info("CommandLineRunner - {}:{}", applicationName,
-				applicationPort);
+		LOGGER.info("===============CommandLineRunner================");
 		LOGGER.info("VCAP Services : {}", vcapServices);
 		LOGGER.info("Application Name : {}", applicationName);
 		LOGGER.info("Application Port : {}", applicationPort);
