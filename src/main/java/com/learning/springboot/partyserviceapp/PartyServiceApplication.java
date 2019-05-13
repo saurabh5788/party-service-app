@@ -1,5 +1,7 @@
 package com.learning.springboot.partyserviceapp;
 
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,7 +11,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Scope;
 
 import com.learning.springboot.partyserviceapp.entity.PartyEntity;
 
@@ -43,7 +44,11 @@ public class PartyServiceApplication implements ApplicationRunner,
 	public void run(ApplicationArguments arg0) throws Exception {
 		LOGGER.info("ApplicationRunner - {}:{}", applicationName,
 				applicationPort);
-		LOGGER.info("ApplicationArguments : {}", arg0);
+		Set<String> optionNameSet = arg0.getOptionNames();
+		int optionNameIndex = 0;
+		for(String optionName : optionNameSet){
+			LOGGER.info("Argument ({}) : {}", ++optionNameIndex, optionName);
+		}		
 	}
 
 	@Override
@@ -60,7 +65,7 @@ public class PartyServiceApplication implements ApplicationRunner,
 		
 		int argIndex = 0;
 		for (String arg : arg0) {
-			LOGGER.info("Argument {} : {}", ++argIndex, arg);
+			LOGGER.info("Argument ({}) : {}", ++argIndex, arg);
 		}
 	}
 
