@@ -9,12 +9,7 @@ applications:
   domain: cfapps.io
   timeout: 60
   memory: 768M
-  instances: 1
+  instances: 2
   env:
     JBP_CONFIG_OPEN_JDK_JRE: '{jre: { version: 1.8.0_+ }}'
     SPRING_PROFILES_ACTIVE: pcf
-  services:
-   - party-service-app-mysql-db
-   - party-service-app-logs
-#env:   
- # JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
