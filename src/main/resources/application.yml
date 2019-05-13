@@ -69,9 +69,9 @@ spring:
         #ddl-auto: create
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: ${vcap.services.party-service-app-db.credentials.jdbcUrl}
-    username: ${vcap.services.party-service-app-db.credentials.username}
-    password: ${vcap.services.party-service-app-db.credentials.password}
+    url: jdbc:mysql://localhost/party-service-app-db?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    username: root
+    password:
     platform: mysql
 #Enabling Random Vacant Port assignment
 server.port: ${PORT:0}
