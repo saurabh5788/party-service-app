@@ -16,5 +16,5 @@ applications:
   services:
    - party-service-app-mysql-db
    - party-service-app-logs
-env:   
-  JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+#env:   
+ # JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
