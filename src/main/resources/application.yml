@@ -60,6 +60,7 @@ server.port: 8080
 spring:
   profiles: cloudfoundry
   application.name: party-service-app
+  #No need for DS related config as Spring Auto Reconfiguration is enabled By Default. 
 #Enabling Random Vacant Port assignment
 server.port: ${PORT:0}
 management:
