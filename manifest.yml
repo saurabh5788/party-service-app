@@ -9,7 +9,9 @@ applications:
   domain: cfapps.io
   timeout: 60
   memory: 768M
-  instances: 2
+  #No of instances of app
+  instances: 1
   env:
     JBP_CONFIG_OPEN_JDK_JRE: '{jre: { version: 1.8.0_+ }}'
-    SPRING_PROFILES_ACTIVE: pcf
+    SPRING_PROFILES_ACTIVE: cloudfoundry
+    #JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
