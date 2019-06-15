@@ -8,6 +8,7 @@ logging.level:
 spring.profiles.active: unit-test 
 ---
 #Local Profile
+server.port: 8080
 spring:
   profiles: local
   application.name: party-service-app
@@ -24,13 +25,12 @@ spring:
     username: root
     password:
     platform: mysql 
-server.port: 8080
 management:
   #port: 8080
   security:
     enabled: false      
 ---
-#Unit Test Profile
+#Unit Test Profile using H2 In Memory Database
 spring:
   profiles: unit-test
   application:
